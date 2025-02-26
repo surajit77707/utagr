@@ -80,6 +80,13 @@ async def mention_users(event, mode, msg):
             await asyncio.sleep(2)
             usrnum = 0
             usrtxt = ''
+
+    await client.send_message(
+        chat_id,
+        "Join Support",
+        buttons=[Button.url("Join Support", url="https://t.me/UmbrellaUCorp")]
+    )
+    
     try:
         spam_chats.remove(chat_id)
     except:
