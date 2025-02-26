@@ -94,10 +94,14 @@ async def mention_users(event, mode, msg):
 
 @client.on(events.NewMessage(pattern="^/utag ?(.*)"))
 async def utag(event):
+    if not await is_admin(event):
+        return await event.respond("__Only admins can use this command!__")
     await mention_users(event, "text_on_cmd", event.pattern_match.group(1))
 
 @client.on(events.NewMessage(pattern="^/atag ?(.*)"))
 async def atag(event):
+    if not await is_admin(event):
+        return await event.respond("__Only admins can use this command!__")
     chat_id = event.chat_id
     if event.is_private:
         return await event.respond("__This command can be used in groups and channels!__")
@@ -109,13 +113,7 @@ async def atag(event):
 
     admin_mentions = []
     for participant in participants:
-        if (
-            isinstance(participant.participant,
-            (
-                ChannelParticipantAdmin,
-                ChannelParticipantCreator
-            ))
-        ):
+        if isinstance(participant.participant, (ChannelParticipantAdmin, ChannelParticipantCreator)):
             admin_mentions.append(f"[{participant.first_name}](tg://user?id={participant.id})")
 
     if admin_mentions:
@@ -133,6 +131,13 @@ async def atag(event):
     else:
         await event.respond("__No admins found in this group or channel!__")
 
+async def is_admin(event):
+    try:
+        participant = await client(GetParticipantRequest(event.chat_id, event.sender_id))
+        return isinstance(participant.participant, (ChannelParticipantAdmin, ChannelParticipantCreator))
+    except UserNotParticipantError:
+        return False
+
 @client.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
     if not event.chat_id in spam_chats:
@@ -144,5 +149,5 @@ async def cancel_spam(event):
             pass
         return await event.respond('__Stopped.__')
 
-print(">> Jarvis User TAgger Robot Started <<")
+print(">> JAMUN <<")
 client.run_until_disconnected()
