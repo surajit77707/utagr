@@ -26,7 +26,7 @@ async def start(event):
         buttons=(
             [
                 Button.url("𝘾𝙝𝙖𝙣𝙣𝙚𝙡", url="https://t.me/moviiieeeesss"),
-                Button.url("sᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/UmbrellaUCorp")
+                Button.url("𝒔𝒖𝒑𝒑𝒐𝒓𝒕", url=f"https://t.me/UmbrellaUCorp")
             ]
         )
     )
@@ -40,7 +40,7 @@ async def help(event):
         buttons=(
             [
                 Button.url("𝘾𝙝𝙖𝙣𝙣𝙚𝙡", url="https://t.me/moviiieeeesss"),
-                Button.url("sᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/UmbrellaUCorp")
+                Button.url("𝒔𝒖𝒑𝒑𝒐𝒓𝒕", url=f"https://t.me/UmbrellaUCorp")
             ]
         )
     )
