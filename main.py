@@ -14,7 +14,7 @@ LOGGER = logging.getLogger(__name__)
 
 api_id = 29565251
 api_hash = "afaa92769fc8a8f85dbf1a11c2b41958"
-bot_token = "7920358188:AAEid--yu8iw_NodFBgmV4OtPW7y5QwSTSI"
+bot_token = "7712679164:AAG3Q_iwekjeGY7K7C1IG6hHfVFec_ZRXCM"
 client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 spam_chats = []
 
@@ -25,8 +25,8 @@ async def start(event):
         link_preview=False,
         buttons=(
             [
-                Button.url("𝘾𝙝𝙖𝙣𝙣𝙚𝙡", url="https://t.me/llEDITING_ZONEll"),
-                Button.url("sᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/+uQWKdQYKY38yYWI1")
+                Button.url("𝘾𝙝𝙖𝙣𝙣𝙚𝙡", url="https://t.me/moviiieeeesss"),
+                Button.url("sᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/UmbrellaUCorp")
             ]
         )
     )
@@ -39,8 +39,8 @@ async def help(event):
         link_preview=False,
         buttons=(
             [
-                Button.url("𝘾𝙝𝙖𝙣𝙣𝙚𝙡", url="https://t.me/llEDITING_ZONEll"),
-                Button.url("sᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/+uQWKdQYKY38yYWI1")
+                Button.url("𝘾𝙝𝙖𝙣𝙣𝙚𝙡", url="https://t.me/moviiieeeesss"),
+                Button.url("sᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/UmbrellaUCorp")
             ]
         )
     )
