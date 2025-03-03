@@ -12,6 +12,8 @@ logging.basicConfig(
 )
 LOGGER = logging.getLogger(__name__)
 
+OWNER_ID = 1883889098
+
 api_id = 29565251
 api_hash = "afaa92769fc8a8f85dbf1a11c2b41958"
 bot_token = "7712679164:AAGo8KyG_U5GTkBwQISxZSn6Gzgw8-m5DHs"
@@ -91,6 +93,18 @@ async def mention_users(event, mode, msg):
         spam_chats.remove(chat_id)
     except:
         pass
+
+# Define the owner ID
+  # Replace with your actual owner ID
+
+@client.on(events.NewMessage(pattern="^/stats$"))
+async def stats(event):
+    if event.sender_id != OWNER_ID:
+        return await event.respond("__You are not authorized to use this command!__")
+    
+    # Your stats logic here
+    stats_message = "Here are your stats..."
+    await event.respond(stats_message)
 
 @client.on(events.NewMessage(pattern="^/utag ?(.*)"))
 async def utag(event):
