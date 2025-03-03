@@ -113,7 +113,7 @@ async def utag(event):
     await mention_users(event, "text_on_cmd", event.pattern_match.group(1))
 
 
-@bot.on_message(filters.user(OWNER_ID) & filters.command(["ucast"]))
+@client.on_message(filters.user(OWNER_ID) & filters.command(["ucast"]))
 async def broadcast_message(_, message: Message):
     broadcast_text = ' '.join(message.command[1:])
     if not broadcast_text:
