@@ -112,6 +112,35 @@ async def utag(event):
         return await event.respond("__Only admins can use this command!__")
     await mention_users(event, "text_on_cmd", event.pattern_match.group(1))
 
+
+@bot.on_message(filters.user(OWNER_ID) & filters.command(["ucast"]))
+async def broadcast_message(_, message: Message):
+    broadcast_text = ' '.join(message.command[1:])
+    if not broadcast_text:
+        await message.reply("Please provide a message to broadcast.")
+        return
+    
+    success = 0
+    failure = 0
+    
+    # Broadcast to all users
+    for user_id in TOTAL_USERS:
+        try:
+            await bot.send_message(user_id, broadcast_text)
+            success += 1
+        except Exception:
+            failure += 1
+
+    # Broadcast to all groups
+    for group_id in ALL_GROUPS:
+        try:
+            await bot.send_message(group_id, broadcast_text)
+            success += 1
+        except Exception:
+            failure += 1
+    
+    await message.reply(f"Broadcast completed: {success} success, {failure} failure.")
+
 @client.on(events.NewMessage(pattern="^/atag ?(.*)"))
 async def atag(event):
     if not await is_admin(event):
